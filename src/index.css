@@ -1,0 +1,246 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #ffe6f0, #f9f0ff);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; 
+  
+  /* min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #ffe6f0, #f9f0ff);
+  color: #333;
+  padding: 0; */
+
+
+}
+
+/* App Container */
+.App {
+  width: 100%;
+  max-width: 1500px;
+  min-height: 85vh;
+  background-color: #fff0f5;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease;
+  
+  /* width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 95vh;
+  background-color: #fff0f5;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  animation: fadeIn 0.8s ease; */
+
+
+}
+
+/* Header */
+header {
+  width: 100%;
+  padding: 1.2rem;
+  background: #d63384;
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  animation: slideDown 0.6s ease;
+  letter-spacing: 1px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  padding: 1rem;
+  background-color: #d63384;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  animation: slideUp 0.6s ease;
+}
+
+/* Main Content */
+main {
+  flex-grow: 1;
+  width: 100%;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+/* Forms */
+.addForm,
+.searchForm {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease;
+}
+
+.addForm input,
+.searchForm input {
+  flex: 1 1 300px;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+  background-color: #fff;
+}
+
+.addForm input:focus,
+.searchForm input:focus {
+  border-color: #d63384;
+  outline: none;
+  box-shadow: 0 0 6px #d6338466;
+}
+
+button {
+  padding: 0.9rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #e83e8c;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #c2185b;
+  transform: scale(1.05);
+}
+
+/* List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  background: #ffe0ec;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  transition: transform 0.2s ease;
+  animation: itemPop 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.01);
+  background-color: #ffe8f0;
+}
+
+.item input[type="checkbox"] {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.item label {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  word-break: break-word;
+}
+
+.item svg {
+  font-size: 1.3rem;
+  color: #d63384;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.item svg:hover {
+  color: #c2185b;
+  transform: scale(1.3);
+}
+
+.item input:checked + label {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes itemPop {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  .App {
+    margin: 0 auto;
+  }
+
+  .addForm,
+  .searchForm {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item svg {
+    align-self: flex-end;
+  }
+}
